@@ -1,0 +1,63 @@
+{
+    "name": "legal-mini",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Sany group legal affairs digital platform applet",
+    "author": "huyong xtu1829473134@163.com",
+    "templateInfo": {
+        "name": "default",
+        "typescript": false,
+        "css": "sass"
+    },
+    "scripts": {
+        "build:weapp": "taro build --type weapp",
+        "build:h5": "taro build --type h5",
+        "dev:weapp": "npm run build:weapp -- --watch",
+        "dev:h5": "npm run build:h5 -- --watch",
+        "lint": "eslint --ext .js --ext .jsx src && npm run lint:style",
+        "lint:fix": "eslint --fix --ext .js --ext .jsx src && npm run lint:style",
+        "prettier": "prettier --write \"./src/**/*\" ",
+        "lint:style": "stylelint 'src/**/*.scss' --syntax scss"
+    },
+    "browserslist": [
+        "last 3 versions",
+        "Android >= 4.1",
+        "ios >= 8"
+    ],
+    "dependencies": {
+        "@babel/runtime": "^7.7.7",
+        "@tarojs/components": "3.3.2",
+        "@tarojs/react": "3.3.2",
+        "@tarojs/runtime": "3.3.2",
+        "@tarojs/taro": "3.3.2",
+        "dva-core": "^2.0.4",
+        "dva-loading": "^3.0.22",
+        "react": "^17.0.0",
+        "react-dom": "^17.0.0",
+        "react-redux": "^7.2.5",
+        "redux": "^4.1.1",
+        "redux-thunk": "^2.3.0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.8.0",
+        "@tarojs/mini-runner": "3.3.2",
+        "@tarojs/webpack-runner": "3.3.2",
+        "@types/react": "^17.0.2",
+        "@types/webpack-env": "^1.13.6",
+        "@typescript-eslint/parser": "^4.31.0",
+        "babel-eslint": "^10.1.0",
+        "babel-preset-taro": "3.3.2",
+        "eslint": "^6.8.0",
+        "eslint-config-taro": "3.3.2",
+        "eslint-plugin-import": "^2.12.0",
+        "eslint-plugin-react": "^7.8.2",
+        "eslint-plugin-react-hooks": "^4.2.0",
+        "miniprogram-api-typings": "^3.4.3",
+        "prettier": "^2.3.2",
+        "stylelint": "9.3.0",
+        "stylelint-config-prettier": "^8.0.2",
+        "stylelint-config-standard": "^22.0.0",
+        "stylelint-scss": "^3.20.1",
+        "typescript": "^4.4.2"
+    }
+}
