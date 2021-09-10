@@ -1,5 +1,5 @@
 {
-    "name": "legal-mini",
+    "name": "taro-dva-template",
     "version": "1.0.2",
     "private": true,
     "description": "Sany group legal affairs digital platform applet",
@@ -17,7 +17,8 @@
         "lint": "eslint --ext .js --ext .jsx src && npm run lint:style",
         "lint:fix": "eslint --fix --ext .js --ext .jsx src && npm run lint:style",
         "prettier": "prettier --write \"./src/**/*\" ",
-        "lint:style": "stylelint 'src/**/*.scss' --syntax scss"
+        "lint:style": "stylelint 'src/**/*.scss' --syntax scss",
+      "clean": "rimraf ./node_modules && rimraf ./dist"
     },
     "browserslist": [
         "last 3 versions",

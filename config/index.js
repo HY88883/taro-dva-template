@@ -2,7 +2,7 @@
 const path = require('path')  // 加在最上面
 
 const config = {
-    projectName: 'legal-mini',
+    projectName: 'taro-dva-template',
     date: '2021-9-8',
     designWidth: 750,
     deviceRatio: {
