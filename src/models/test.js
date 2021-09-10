@@ -2,7 +2,7 @@ export default {
     namespace: 'test',
 
     state: {
-        name: 'test'
+        name: 'this data is from dva!'
     },
 
     effects: {},
