@@ -8,12 +8,12 @@ export default class Tips {
     /**
      * 信息提示
      */
-    static toast(title, onHide) {
+    static toast(title, onHide=()=>{}) {
         Taro.showToast({
             title: title,
             icon: 'none',
             mask: true,
-            duration: 1500
+            duration: 2000
         });
         // 隐藏结束回调
         if (onHide) {
@@ -61,15 +61,17 @@ export default class Tips {
     /**
      * 弹出提示框
      */
-    static success(title, duration = 1500) {
-        Taro.showToast({
+    static async success(title, duration = 2000) {
+        try{
+          await Taro.showToast({
             title: title,
             icon: 'success',
             mask: true,
             duration: duration
-        });
-        if (duration > 0) {
+          });
+        }catch(){}
+        /*if (duration > 0) {
             return new Promise((resolve) => setTimeout(resolve, duration));
-        }
+        }*/
     }
 }

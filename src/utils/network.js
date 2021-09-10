@@ -106,13 +106,13 @@ export async function request(url, option) {
         const error = new Error(errortext);
         error.name = response.code.toString();
         // throw error;
-        console.log('error', JSON.stringify(error));
+        console.log('ERROR：', JSON.stringify(error));
     };
 
     const checkCode = (response) => {
         if (response.code && response.code === 401) {
             // RootNavigation.replace("Login", {});
-            console.log('checkCode', codeMessage[401]);
+            console.log('CHECKCODE：', codeMessage[401]);
         }
     };
 
@@ -143,7 +143,6 @@ requestHandler.fail()
     };
 
     const fail = function (res, reject) {
-        Tips.toast('mniha');
         console.log('URL：', API_BASE_URL + url);
         console.log('REQUEST FAIL,DATA IS：', JSON.stringify(res.data));
         reject('网络请求错误');
