@@ -21,5 +21,5 @@ app.config.js  app.scss  components  index.html  pages   utils
 
 ### taro-dva-template 为那些使用react+dva+ts的开发者开发小程序提供了便利，节省了框架搭建时间，下一步正在探索如何节省模块开发的工作量。
 
-####如果有修改建议欢迎在issue中提出哦~
+#### 如果有修改建议欢迎在issue中提出哦~
 
