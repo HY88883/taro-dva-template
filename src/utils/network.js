@@ -19,7 +19,15 @@ const codeMessage = {
     504: '网关超时。'
 };
 
-const API_BASE_URL = 'http://192.168.0.108:1888';
+export const getBaseUrl = () => {
+    let API_BASE_URL = '';
+    if (process.env.NODE_ENV == 'production') {
+        API_BASE_URL = 'http://192.168.0.108:1888';
+    } else {
+        API_BASE_URL = 'http://192.168.0.108:1888';
+    }
+    return API_BASE_URL;
+};
 
 /**
  * http request 请求
@@ -94,19 +102,16 @@ export async function request(url, option) {
   }*/
 
     const checkStatus = (response) => {
-        if (
-            (response.code >= 200 && response.code < 300) ||
-            response.code === 400 ||
-            response.code === 500
-        ) {
+        if (response.code >= 200 && response.code < 300) {
             return;
         }
-        const errortext = codeMessage[response.code] || response.code;
+        const infotext = codeMessage[response.code] || response.code;
+        const msgInfo = { [response.code.toString()]: infotext };
         // 错误通知
-        const error = new Error(errortext);
-        error.name = response.code.toString();
+        // const error = new Error(infotext);
+        // error.name = response.code.toString();
         // throw error;
-        console.log('ERROR：', JSON.stringify(error));
+        console.log('CHECKSTATUS：', JSON.stringify(msgInfo));
     };
 
     const checkCode = (response) => {
@@ -116,11 +121,13 @@ export async function request(url, option) {
         }
     };
 
-    const success = function (res, resolve) {
-        console.log('URL：', API_BASE_URL + url);
+    const success = function (res, resolve, reject) {
+        console.log('URL：', getBaseUrl() + url);
         console.log('REQUEST SUCCESS,DATA IS：', JSON.stringify(res.data));
         if (res.data.success) {
             resolve(res.data);
+        } else {
+            reject('网络请求错误');
         }
         /*console.log('request success!')
 console.log(res.data)
@@ -143,7 +150,7 @@ requestHandler.fail()
     };
 
     const fail = function (res, reject) {
-        console.log('URL：', API_BASE_URL + url);
+        console.log('URL：', getBaseUrl() + url);
         console.log('REQUEST FAIL,DATA IS：', JSON.stringify(res.data));
         reject('网络请求错误');
         /*console.log('request failed!')
@@ -160,16 +167,18 @@ requestHandler.fail()*/
         checkCode(res.data);
     };
 
+    Taro.addInterceptor(Taro.interceptors.timeoutInterceptor);
+
     return new Promise((resolve, reject) => {
         Taro.request({
-            url: API_BASE_URL + url,
-            data: newOptions.body,
+            url: getBaseUrl() + url,
+            data: newOptions.body || 'GET',
             method: newOptions.method,
             responseType: 'text',
             credentials: newOptions.credentials,
             header: newOptions.headers,
             mode: 'no-cors',
-            success: (res) => success(res, resolve),
+            success: (res) => success(res, resolve, reject),
             fail: (res) => fail(res, reject),
             complete
         });
