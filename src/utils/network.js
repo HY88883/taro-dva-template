@@ -172,8 +172,8 @@ requestHandler.fail()*/
     return new Promise((resolve, reject) => {
         Taro.request({
             url: getBaseUrl() + url,
-            data: newOptions.body || 'GET',
-            method: newOptions.method,
+            data: newOptions.body,
+            method: newOptions.method || 'GET',
             responseType: 'text',
             credentials: newOptions.credentials,
             header: newOptions.headers,
