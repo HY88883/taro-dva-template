@@ -2,7 +2,7 @@ export default {
     namespace: 'test',
 
     state: {
-        name: 'this data is from dva!'
+        name: 'this is a mini-program for taro using react,and data is from dva!'
     },
 
     effects: {},

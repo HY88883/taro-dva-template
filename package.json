@@ -2,7 +2,7 @@
     "name": "taro-dva-template",
     "version": "1.0.2",
     "private": true,
-    "description": "Sany group legal affairs digital platform applet",
+    "description": "Taro applet react template",
     "author": "huyong xtu1829473134@163.com",
     "templateInfo": {
         "name": "default",
@@ -10,10 +10,24 @@
         "css": "sass"
     },
     "scripts": {
-        "build:weapp": "taro build --type weapp",
-        "build:h5": "taro build --type h5",
-        "dev:weapp": "npm run build:weapp -- --watch",
-        "dev:h5": "npm run build:h5 -- --watch",
+      "build:weapp": "taro build --type weapp",
+      "build:swan": "taro build --type swan",
+      "build:alipay": "taro build --type alipay",
+      "build:tt": "taro build --type tt",
+      "build:h5": "taro build --type h5",
+      "build:rn": "taro build --type rn",
+      "build:qq": "taro build --type qq",
+      "build:jd": "taro build --type jd",
+      "build:quickapp": "taro build --type quickapp",
+      "dev:weapp": "npm run build:weapp -- --watch",
+      "dev:swan": "npm run build:swan -- --watch",
+      "dev:alipay": "npm run build:alipay -- --watch",
+      "dev:tt": "npm run build:tt -- --watch",
+      "dev:h5": "npm run build:h5 -- --watch",
+      "dev:rn": "npm run build:rn -- --watch",
+      "dev:qq": "npm run build:qq -- --watch",
+      "dev:jd": "npm run build:jd -- --watch",
+      "dev:quickapp": "npm run build:quickapp -- --watch",
         "lint": "eslint --ext .js --ext .jsx src && npm run lint:style",
         "lint:fix": "eslint --fix --ext .js --ext .jsx src && npm run lint:style",
         "prettier": "prettier --write \"./src/**/*\" ",
@@ -35,9 +49,7 @@
         "dva-loading": "^3.0.22",
         "react": "^17.0.0",
         "react-dom": "^17.0.0",
-        "react-redux": "^7.2.5",
-        "redux": "^4.1.1",
-        "redux-thunk": "^2.3.0"
+        "react-redux": "^7.2.5"
     },
     "devDependencies": {
         "@babel/core": "^7.8.0",
